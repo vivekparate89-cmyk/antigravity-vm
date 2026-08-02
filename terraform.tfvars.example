@@ -1,0 +1,29 @@
+environment            = "prod"
+location               = "eastus"
+resource_group_name    = "rg-3tier"
+
+vnet_address_space     = ["10.0.0.0/16"]
+frontend_subnet_prefix = ["10.0.1.0/24"]
+backend_subnet_prefix  = ["10.0.2.0/24"]
+db_subnet_prefix       = ["10.0.3.0/24"]
+app_gw_subnet_prefix   = ["10.0.10.0/24"]
+bastion_subnet_prefix  = ["10.0.20.0/26"]
+
+admin_username         = "azureadmin"
+
+# Provide a strong password or use SSH keys. If using password, uncomment below:
+# admin_password       = "P@ssw0rd1234!"
+
+# If using SSH key auth, uncomment below and provide your public key string:
+# ssh_public_key       = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC..."
+
+frontend_vm_size       = "Standard_B2s"
+backend_vm_size        = "Standard_B2s"
+db_vm_size             = "Standard_B2s"
+db_port                = 5432
+
+tags = {
+  Environment = "Production"
+  Project     = "3-Tier-App"
+  ManagedBy   = "Terraform"
+}
